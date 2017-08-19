@@ -2,6 +2,8 @@
 
 Vue.js plugin for [bugsnag-js](https://github.com/bugsnag/bugsnag-js) error reporting
 
+![Bugsnag Dashboard](screenshot.png)
+
 ## Installation
 ```bash
 # npm
