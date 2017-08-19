@@ -1,5 +1,11 @@
 # Vue Bugsnag
 
+[![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
+[![downloads](https://img.shields.io/npm/dt/vue-bugsnag.svg)](https://www.npmjs.com/package/vue-bugsnag)
+[![npm-version](https://img.shields.io/npm/v/vue-bugsnag.svg)](https://www.npmjs.com/package/vue-bugsnag)
+[![github-tag](https://img.shields.io/github/tag/ankurk91/vue-bugsnag.svg?maxAge=1800)](https://github.com/ankurk91/vue-bugsnag/)
+[![license](https://img.shields.io/github/license/ankurk91/vue-bugsnag.svg?maxAge=1800)]()
+
 Vue.js plugin for [bugsnag-js](https://github.com/bugsnag/bugsnag-js) error reporting
 
 ![Bugsnag Dashboard](screenshot.png)
@@ -45,14 +51,13 @@ if (process.env.NODE_ENV === 'production') {
 ```
 * That's it, plugin will auto initialize.
 
-
 ## How does it work?
 * This plugin utilize Vue.js inbuilt [error handler](https://vuejs.org/v2/api/#errorHandler)
 * This plugin prepares a payload and send this to Bugsnag as [metadata](https://docs.bugsnag.com/platforms/browsers/#custom-diagnostics)
-* This metadata will appear in a new tab in Bugsnag dashboard.
+* This metadata will appear on a new tab in Bugsnag dashboard.
 
-## Credits
+### Credits
 * [raven-js](https://github.com/getsentry/raven-js)
 
-## License
+### License
 [MIT](LICENSE.txt) License
