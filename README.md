@@ -34,19 +34,17 @@ Vue.use(VueBugsnag);
 * Prevent Bugsnag from being initialized in development
 ```js
 if (process.env.NODE_ENV === 'production') {
-  //Initialize Bugsnag here
+  // Initialize Bugsnag here
 }
 ```
-
-* Limit error reporting to specific release stages
-
+* Limit error reporting to specific release [stages](https://docs.bugsnag.com/platforms/browsers/configuration-options/#releasestage)
 ```js
+Bugsnag.releaseStage = "YOUR-CURRENT-ENVIRONMENT";
 Bugsnag.notifyReleaseStages = ['staging', 'production'];
 ```
 
 ## Use with Vue Router
-* Use an `afterEach` [navigation guard](https://router.vuejs.org/en/advanced/navigation-guards.html) to reset the Bugsnag error limit.
-
+* Use an global `afterEach` [navigation guard](https://router.vuejs.org/en/advanced/navigation-guards.html#global-after-hooks) to reset the Bugsnag error [rate limit](https://docs.bugsnag.com/platforms/browsers/configuration-options/#refresh).
 ```js
 router.afterEach((to, from) => {
     Bugsnag.refresh();
@@ -56,7 +54,7 @@ router.afterEach((to, from) => {
 ## Use in browser (without webpack)
 * Include required files
 ```html
-<!-- Add bugsnag core library -->
+<!-- Add Bugsnag core library -->
 <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js"
         data-apikey="YOUR-API-KEY-HERE"></script>
 <!-- Vue js -->
@@ -71,8 +69,11 @@ router.afterEach((to, from) => {
 * This plugin prepares a payload and send this to Bugsnag as [metadata](https://docs.bugsnag.com/platforms/browsers/#custom-diagnostics)
 * This metadata will appear on a new tab in Bugsnag dashboard.
 
-### Credits
-* [raven-js](https://github.com/getsentry/raven-js)
+### Credits and Thanks
+* Thanks to Sentry for their [Vue.js plugin](https://github.com/getsentry/raven-js)
+
+### Resources
+* [Bugsnag Browser integration guide](https://docs.bugsnag.com/platforms/browsers/) 
 
 ### License
 [MIT](LICENSE.txt) License

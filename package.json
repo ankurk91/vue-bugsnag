@@ -1,6 +1,6 @@
 {
   "name": "vue-bugsnag",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue.js plugin for bugsnag js",
   "main": "dist/vue-bugsnag.js",
   "module": "src/index.js",
