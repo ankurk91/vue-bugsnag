@@ -31,11 +31,26 @@ import Vue from 'vue';
 import VueBugsnag from 'vue-bugsnag';
 Vue.use(VueBugsnag);
 ```
-* Prevent development errors from reporting
+* Prevent Bugsnag from being initialized in development
 ```js
 if (process.env.NODE_ENV === 'production') {
-  // Initialize bugsnag here
+  //Initialize Bugsnag here
 }
+```
+
+* Limit error reporting to specific release stages
+
+```js
+Bugsnag.notifyReleaseStages = ['staging', 'production'];
+```
+
+## Use with Vue Router
+* Use an `afterEach` [navigation guard](https://router.vuejs.org/en/advanced/navigation-guards.html) to reset the Bugsnag error limit.
+
+```js
+router.afterEach((to, from) => {
+    Bugsnag.refresh();
+});
 ```
 
 ## Use in browser (without webpack)
