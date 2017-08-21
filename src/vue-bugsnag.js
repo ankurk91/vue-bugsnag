@@ -1,6 +1,12 @@
 'use strict';
 const Bugsnag = window.Bugsnag || require('bugsnag-js');
 
+/**
+ * Extract component name from vm
+ *
+ * @param vm
+ * @returns String
+ */
 function formatComponentName(vm) {
   if (vm.$root === vm) {
     return 'root instance'
@@ -12,6 +18,12 @@ function formatComponentName(vm) {
     (vm._isVue && vm.$options.__file ? ' at ' + vm.$options.__file : '')
 }
 
+/**
+ * Hook into Vue.js error handler
+ *
+ * @param Vue Vue.js instance
+ * @param params Object|String
+ */
 function plugin(Vue, params) {
 
   // Preserve old handler
@@ -33,8 +45,9 @@ function plugin(Vue, params) {
       vue: metaData
     });
 
+    // Lastly call original handler if registered
     if (typeof _oldOnError === 'function') {
-      _oldOnError.call(this, error, vm);
+      _oldOnError.call(this, error, vm, info);
     }
   };
 }
