@@ -7,7 +7,7 @@ const Bugsnag = window.Bugsnag || require('bugsnag-js');
  * @param vm
  * @returns String
  */
-function formatComponentName(vm) {
+const formatComponentName = (vm) => {
   if (vm.$root === vm) {
     return 'root instance'
   }
@@ -16,7 +16,8 @@ function formatComponentName(vm) {
     : vm.name;
   return (name ? 'component <' + name + '>' : 'anonymous component') +
     (vm._isVue && vm.$options.__file ? ' at ' + vm.$options.__file : '')
-}
+};
+
 
 /**
  * Hook into Vue.js error handler
@@ -24,13 +25,12 @@ function formatComponentName(vm) {
  * @param Vue Vue.js instance
  * @param params Object|String
  */
-function plugin(Vue, params) {
-
+const VueBugsnag = (Vue, params) => {
   // Preserve old handler
   let _oldOnError = Vue.config.errorHandler;
 
   // https://vuejs.org/v2/api/#errorHandler
-  Vue.config.errorHandler = function VueErrorHandler(error, vm, info) {
+  Vue.config.errorHandler = (error, vm, info) => {
 
     // https://docs.bugsnag.com/platforms/browsers/#custom-diagnostics
     let metaData = {
@@ -39,7 +39,7 @@ function plugin(Vue, params) {
       lifeCycleHook: info // Vue.js v2.2.0+
     };
 
-    console.info(metaData);
+    console.log(metaData);
 
     Bugsnag.notifyException(error, {
       vue: metaData
@@ -50,6 +50,6 @@ function plugin(Vue, params) {
       _oldOnError.call(this, error, vm, info);
     }
   };
-}
+};
 
-export default plugin;
+export default VueBugsnag;
