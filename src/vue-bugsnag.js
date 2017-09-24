@@ -36,7 +36,7 @@ const VueBugsnag = (Vue, params) => {
     let metaData = {
       componentName: formatComponentName(vm),
       propsData: vm.$options.propsData,
-      lifeCycleHook: info // Vue.js v2.2.0+
+      lifecycleHook: info // Vue.js v2.2.0+
     };
 
     console.log(metaData);
