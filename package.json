@@ -3,7 +3,6 @@
   "version": "0.0.2",
   "description": "Vue.js plugin for bugsnag js",
   "main": "dist/vue-bugsnag.js",
-  "module": "src/index.js",
   "unpkg": "dist/vue-bugsnag.min.js",
   "repository": {
     "type": "git",
