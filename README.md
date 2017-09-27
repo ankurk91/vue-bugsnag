@@ -50,6 +50,8 @@ router.afterEach((to, from) => {
     Bugsnag.refresh();
 });
 ```
+## Laravel Mix user?
+Checkout [this](https://github.com/ankurk91/vue-bugsnag/wiki/Laravel-Mix) guide
 
 ## Use in browser (without webpack)
 * Include required files
