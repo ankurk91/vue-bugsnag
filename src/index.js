@@ -1,13 +1,8 @@
 import VueBugsnag from './vue-bugsnag';
 
-let plugin = {
-  install: VueBugsnag
-};
-
 //  Auto initialization
 if (typeof window !== 'undefined' && window.Vue) {
-  Vue.use(plugin);
+  window.Vue.use(VueBugsnag);
 }
 
-export default plugin;
-export {VueBugsnag};
+export default VueBugsnag;

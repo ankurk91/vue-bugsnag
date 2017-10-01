@@ -34,8 +34,8 @@ const VueBugsnag = (Vue, params) => {
 
     // https://docs.bugsnag.com/platforms/browsers/#custom-diagnostics
     let metaData = {
-      componentName: formatComponentName(vm),
-      propsData: vm.$options.propsData,
+      component: formatComponentName(vm),
+      props: vm ? vm.$options.propsData : undefined,
       lifecycleHook: info // Vue.js v2.2.0+
     };
 
