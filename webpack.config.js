@@ -20,7 +20,7 @@ module.exports = {
     'vue-bugsnag': './src/index.js',
     'vue-bugsnag.min': './src/index.js',
   },
-  // Don't include theme into library build
+  // Don't include them into library build
   externals: [
     'vue',
     'bugsnag-js',

@@ -5,8 +5,9 @@ let plugin = {
 };
 
 //  Auto initialization
-if (typeof window !== 'undefined') {
-  window.Vue && Vue.use(plugin);
+if (typeof window !== 'undefined' && window.Vue) {
+  Vue.use(plugin);
 }
 
 export default plugin;
+export {VueBugsnag};

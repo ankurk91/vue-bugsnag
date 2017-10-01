@@ -44,12 +44,13 @@ Bugsnag.notifyReleaseStages = ['staging', 'production'];
 ```
 
 ## Use with Vue Router
-* Use an global `afterEach` [navigation guard](https://router.vuejs.org/en/advanced/navigation-guards.html#global-after-hooks) to reset the Bugsnag error [rate limit](https://docs.bugsnag.com/platforms/browsers/configuration-options/#refresh).
+* Use the global `afterEach` [navigation guard](https://router.vuejs.org/en/advanced/navigation-guards.html#global-after-hooks) to reset the Bugsnag error [rate limit](https://docs.bugsnag.com/platforms/browsers/configuration-options/#refresh).
 ```js
 router.afterEach((to, from) => {
     Bugsnag.refresh();
 });
 ```
+
 ## Laravel Mix user?
 Checkout [this](https://github.com/ankurk91/vue-bugsnag/wiki/Laravel-Mix) guide
 
