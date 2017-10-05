@@ -734,8 +734,8 @@ buffer@^4.3.0:
     isarray "^1.0.0"
 
 bugsnag-js@^3.2.0:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/bugsnag-js/-/bugsnag-js-3.2.2.tgz#10fad5c3b33b00ef99c28fe5b5ba5d066675d07a"
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/bugsnag-js/-/bugsnag-js-3.3.1.tgz#3c06199623493d9e582fa8e84f18677900bce4bb"
 
 builtin-modules@^1.0.0:
   version "1.1.1"
@@ -801,10 +801,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     safe-buffer "^5.0.1"
 
 clean-webpack-plugin@^0.1.16:
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/clean-webpack-plugin/-/clean-webpack-plugin-0.1.16.tgz#422a8e150bf3d5abfd3d14bfacb070e80fb2e23f"
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/clean-webpack-plugin/-/clean-webpack-plugin-0.1.17.tgz#71c57242e6d47204d46f809413176e7bed28ec49"
   dependencies:
-    rimraf "~2.5.1"
+    rimraf "^2.6.1"
 
 cliui@^2.1.0:
   version "2.1.0"
@@ -2196,12 +2196,6 @@ right-align@^0.1.1:
 rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
-  dependencies:
-    glob "^7.0.5"
-
-rimraf@~2.5.1:
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
     glob "^7.0.5"
 
