@@ -1,10 +1,10 @@
 # Vue Bugsnag
 
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
-[![downloads](https://img.shields.io/npm/dt/vue-bugsnag.svg)](https://www.npmjs.com/package/vue-bugsnag)
+[![downloads](https://img.shields.io/npm/dt/vue-bugsnag.svg)](http://npm-stats.com/~packages/vue-bugsnag)
 [![npm-version](https://img.shields.io/npm/v/vue-bugsnag.svg)](https://www.npmjs.com/package/vue-bugsnag)
 [![github-tag](https://img.shields.io/github/tag/ankurk91/vue-bugsnag.svg?maxAge=1800)](https://github.com/ankurk91/vue-bugsnag/)
-[![license](https://img.shields.io/github/license/ankurk91/vue-bugsnag.svg?maxAge=1800)]()
+[![license](https://img.shields.io/github/license/ankurk91/vue-bugsnag.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-bugsnag)
 
 Vue.js plugin for [bugsnag-js](https://github.com/bugsnag/bugsnag-js) error reporting
 
@@ -23,7 +23,7 @@ yarn add vue-bugsnag
 * Grab your API key from [Bugsnag](https://www.bugsnag.com/)
 ```js
 import Bugsnag from 'bugsnag-js';
-Bugsnag.apiKey = "YOUR-API-KEY-HERE";
+Bugsnag.apiKey = 'YOUR-API-KEY-HERE';
 ```
 * Plug into Vue.js
 ```js
@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
 ```
 * Limit error reporting to specific release [stages](https://docs.bugsnag.com/platforms/browsers/configuration-options/#releasestage)
 ```js
-Bugsnag.releaseStage = "YOUR-CURRENT-ENVIRONMENT";
+Bugsnag.releaseStage = 'YOUR-CURRENT-ENVIRONMENT';
 Bugsnag.notifyReleaseStages = ['staging', 'production'];
 ```
 
