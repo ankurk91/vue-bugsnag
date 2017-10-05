@@ -1,4 +1,3 @@
-'use strict';
 const Bugsnag = window.Bugsnag || require('bugsnag-js');
 
 /**
