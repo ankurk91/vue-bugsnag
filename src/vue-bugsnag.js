@@ -38,8 +38,6 @@ const VueBugsnag = (Vue, params) => {
       lifecycleHook: info // Vue.js v2.2.0+
     };
 
-    console.log(metaData);
-
     Bugsnag.notifyException(error, {
       vue: metaData
     });

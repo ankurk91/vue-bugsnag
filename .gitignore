@@ -68,3 +68,5 @@ composer.phar
 /docs/
 /dist/
 /examples/
+/coverage/
+/tmp/

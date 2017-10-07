@@ -20,7 +20,7 @@
   "author": "ankurk91",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./node_modules/jest/bin/jest.js",
     "lint": "eslint --ext .js,.vue --fix src",
     "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules --progress"
   },
@@ -32,6 +32,7 @@
     "babel-loader": "^7.1.0",
     "babel-preset-env": "^1.6.0",
     "clean-webpack-plugin": "^0.1.16",
+    "jest": "^21.2.1",
     "vue": "^2.4.2",
     "webpack": "^3.5.3"
   },
@@ -41,5 +42,12 @@
   "engines": {
     "node": ">= 4.2.0",
     "npm": ">= 3.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "mapCoverage": true,
+    "collectCoverage": true
   }
 }

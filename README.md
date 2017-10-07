@@ -5,6 +5,8 @@
 [![npm-version](https://img.shields.io/npm/v/vue-bugsnag.svg)](https://www.npmjs.com/package/vue-bugsnag)
 [![github-tag](https://img.shields.io/github/tag/ankurk91/vue-bugsnag.svg?maxAge=1800)](https://github.com/ankurk91/vue-bugsnag/)
 [![license](https://img.shields.io/github/license/ankurk91/vue-bugsnag.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-bugsnag)
+[![build-status](https://travis-ci.org/ankurk91/vue-bugsnag.svg?branch=master)](https://travis-ci.org/ankurk91/vue-bugsnag)
+[![codecov](https://codecov.io/gh/ankurk91/vue-bugsnag/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-bugsnag)
 
 Vue.js plugin for [bugsnag-js](https://github.com/bugsnag/bugsnag-js) error reporting
 
