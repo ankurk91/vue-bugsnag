@@ -25,6 +25,10 @@ const formatComponentName = (vm) => {
  * @param params Object|String
  */
 const VueBugsnag = (Vue, params) => {
+
+  // Quit if not a Vue constructor
+  if (!Vue.config) return;
+
   // Preserve old handler
   let _oldOnError = Vue.config.errorHandler;
 
