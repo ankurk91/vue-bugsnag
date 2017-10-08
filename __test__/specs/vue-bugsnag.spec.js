@@ -8,6 +8,9 @@ describe('VueBugsnag', () => {
   // Init with fake API key
   Bugsnag.apiKey = '0'.repeat(32);
 
+  // Only manual error reporting allowed during tests
+  Bugsnag.autoNotify = false;
+
   // Set our own errorHandler
   // This needs to bet setup before plugin initialization
   Vue.config.errorHandler = (...args) => {
@@ -17,12 +20,16 @@ describe('VueBugsnag', () => {
   // Init plugin
   Vue.use(Plugin);
 
-  test('capture lifecycle hook errors', () => {
+  afterEach(() => {
+    Bugsnag.refresh();
+  });
+
+  test('captures lifecycle hook errors', () => {
     let spy = jest.spyOn(Bugsnag, 'notifyException');
 
     let error = new Error('Error in mounted hook.');
     let app = Vue.extend({
-      template: `<div id="app">
+      template: `<div id="app1">
                   <h1>Hello</h1>
                  </div>`,
       data() {
@@ -34,12 +41,16 @@ describe('VueBugsnag', () => {
     });
 
     let wrapper = new app().$mount();
-    expect(spy).toBeCalled();
-    expect(spy.mock.calls[0][0]).toEqual(error);
-    expect(spy.mock.calls[0][1].vue.lifecycleHook).toEqual('mounted hook');
+    expect(spy).toBeCalledWith(error, {
+      vue: {
+        component: 'root instance',
+        props: undefined,
+        lifecycleHook: 'mounted hook'
+      }
+    });
 
     wrapper.$destroy();
-    spy.mockReset();
+    spy.mockRestore();
   });
 
   test('calls existing error handler', () => {
@@ -47,7 +58,7 @@ describe('VueBugsnag', () => {
 
     let error = new Error('Yet another error.');
     let app = Vue.extend({
-      template: `<div id="another-app">
+      template: `<div id="app2">
                   <h1>Hello Vue</h1>
                  </div>`,
       data() {
@@ -59,13 +70,53 @@ describe('VueBugsnag', () => {
     });
 
     let wrapper = new app().$mount();
-    expect(spy).toBeCalled();
-    expect(spy.mock.calls[0][0]).toEqual(error);
-    expect(spy.mock.calls[0][1]).toEqual(wrapper);
-    expect(spy.mock.calls[0][2]).toEqual('mounted hook');
+    expect(spy).toBeCalledWith(error, wrapper, 'mounted hook');
 
     wrapper.$destroy();
-    spy.mockReset();
+    spy.mockRestore();
+  });
+
+
+  test('captures component name', () => {
+    let spy = jest.spyOn(Bugsnag, 'notifyException');
+    let error = new Error('Error from child.');
+
+    let app = Vue.extend({
+      template: `<div id="app3">
+                  <fancy-button :label="label"></fancy-button>
+                 </div>`,
+      data() {
+        return {
+          label: 'Click me'
+        }
+      },
+      components: {
+        fancyButton: {
+          props: {
+            label: {
+              type: String
+            }
+          },
+          template: `<button>{{label}}</button>`,
+          mounted() {
+            throw error
+          },
+        }
+      }
+    });
+
+    let wrapper = new app().$mount();
+
+    expect(spy).toBeCalledWith(error, {
+      vue: {
+        component: 'component <fancy-button>',
+        props: {label: 'Click me'},
+        lifecycleHook: 'mounted hook'
+      }
+    });
+
+    wrapper.$destroy();
+    spy.mockRestore();
   });
 
 });
