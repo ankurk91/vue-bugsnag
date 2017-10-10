@@ -22,7 +22,8 @@
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js",
     "lint": "eslint --ext .js,.vue --fix src",
-    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules --progress"
+    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules --progress",
+    "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
     "bugsnag-js": "^3.3.1"
