@@ -63,7 +63,7 @@ Checkout [this](https://github.com/ankurk91/vue-bugsnag/wiki/Laravel-Mix) guide
 <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js"
         data-apikey="YOUR-API-KEY-HERE"></script>
 <!-- Vue js -->
-<script src="https://unpkg.com/vue@2.4/dist/vue.min.js"></script>
+<script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://unpkg.com/vue-bugsnag"></script>
 ```
