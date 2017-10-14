@@ -2,6 +2,7 @@ import Plugin from '../../src/vue-bugsnag';
 import Bugsnag from 'bugsnag-js';
 // Lets import full build
 import Vue from 'vue/dist/vue.common';
+Vue.config.productionTip = false;
 
 describe('VueBugsnag', () => {
 
@@ -12,7 +13,7 @@ describe('VueBugsnag', () => {
   Bugsnag.autoNotify = false;
 
   // Set our own errorHandler
-  // This needs to bet setup before plugin initialization
+  // This needs to be setup before plugin initialization
   Vue.config.errorHandler = (...args) => {
     // owner handler
   };
@@ -48,6 +49,7 @@ describe('VueBugsnag', () => {
         lifecycleHook: 'mounted hook'
       }
     });
+    expect(spy).toHaveBeenCalledTimes(1);
 
     wrapper.$destroy();
     spy.mockRestore();
@@ -71,6 +73,7 @@ describe('VueBugsnag', () => {
 
     let wrapper = new app().$mount();
     expect(spy).toBeCalledWith(error, wrapper, 'mounted hook');
+    expect(spy).toHaveBeenCalledTimes(1);
 
     wrapper.$destroy();
     spy.mockRestore();
@@ -114,6 +117,7 @@ describe('VueBugsnag', () => {
         lifecycleHook: 'mounted hook'
       }
     });
+    expect(spy).toHaveBeenCalledTimes(1);
 
     wrapper.$destroy();
     spy.mockRestore();
