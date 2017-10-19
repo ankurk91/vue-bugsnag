@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const packageJson = require('./package.json');
 
 module.exports = {
   context: __dirname,
@@ -47,6 +48,9 @@ module.exports = {
       include: /\.min\.js$/,
       minimize: true,
     }),
+    new webpack.BannerPlugin({
+      banner: `name: ${packageJson.name}\nauthor: ${packageJson.author}\nlicense: ${packageJson.license}\n${packageJson.homepage}`
+    })
   ],
   devtool: false,
   performance: {
