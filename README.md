@@ -74,6 +74,11 @@ Checkout [this](https://github.com/ankurk91/vue-bugsnag/wiki/Laravel-Mix) guide
 * This plugin prepares a payload and send this to Bugsnag as [metadata](https://docs.bugsnag.com/platforms/browsers/#custom-diagnostics)
 * This metadata will appear on a new tab in Bugsnag dashboard.
 
+### Testing
+* This package is using [Jest](https://github.com/facebook/jest) for testing.
+* Tests can be found in `__test__` folder.
+* Execute tests with this command `yarn test`
+
 ### Credits and Thanks
 * Thanks to Sentry for their [Vue.js plugin](https://github.com/getsentry/raven-js)
 

@@ -44,7 +44,7 @@ describe('VueBugsnag', () => {
     let wrapper = new app().$mount();
     expect(spy).toBeCalledWith(error, {
       vue: {
-        component: 'root instance',
+        component: '<Root>',
         props: undefined,
         lifecycleHook: 'mounted hook'
       }
@@ -112,7 +112,7 @@ describe('VueBugsnag', () => {
 
     expect(spy).toBeCalledWith(error, {
       vue: {
-        component: 'component <fancy-button>',
+        component: '<FancyButton>',
         props: {label: 'Click me'},
         lifecycleHook: 'mounted hook'
       }

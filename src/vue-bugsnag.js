@@ -1,20 +1,40 @@
 const Bugsnag = window.Bugsnag || require('bugsnag-js');
 
+// Helpers for formatComponentName method
+const classifyRE = /(?:^|[-_])(\w)/g;
+const classify = str => str
+  .replace(classifyRE, c => c.toUpperCase())
+  .replace(/[-_]/g, '');
+
 /**
- * Extract component name from vm
+ * Extract component name (and file) from vm
+ * This method has been taken from file -
+ * https://github.com/vuejs/vue/blob/dev/src/core/util/debug.js
  *
  * @param vm
+ * @param includeFile boolean
  * @returns String
  */
-const formatComponentName = (vm) => {
+const formatComponentName = (vm, includeFile) => {
   if (vm.$root === vm) {
-    return 'root instance'
+    return '<Root>'
   }
-  let name = vm._isVue
-    ? vm.$options.name || vm.$options._componentTag
-    : vm.name;
-  return (name ? 'component <' + name + '>' : 'anonymous component') +
-    (vm._isVue && vm.$options.__file ? ' at ' + vm.$options.__file : '')
+  const options = typeof vm === 'function' && vm.cid !== null
+    ? vm.options
+    : vm._isVue
+      ? vm.$options || vm.constructor.options
+      : vm || {};
+  let name = options.name || options._componentTag;
+  const file = options.__file;
+  if (!name && file) {
+    const match = file.match(/([^/\\]+)\.vue$/);
+    name = match && match[1]
+  }
+
+  return (
+    (name ? `<${classify(name)}>` : `<Anonymous>`) +
+    (file && includeFile !== false ? ` at ${file}` : '')
+  )
 };
 
 
@@ -27,6 +47,7 @@ const formatComponentName = (vm) => {
 const VueBugsnag = (Vue, params) => {
 
   // Quit if not a Vue constructor
+  /* istanbul ignore if */
   if (!Vue.config) return;
 
   // Preserve old handler
@@ -37,7 +58,7 @@ const VueBugsnag = (Vue, params) => {
 
     // https://docs.bugsnag.com/platforms/browsers/#custom-diagnostics
     let metaData = {
-      component: formatComponentName(vm),
+      component: formatComponentName(vm, true),
       props: vm ? vm.$options.propsData : undefined,
       lifecycleHook: info // Vue.js v2.2.0+
     };
