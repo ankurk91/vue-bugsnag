@@ -11,7 +11,7 @@
 Vue.js plugin for [bugsnag-js](https://github.com/bugsnag/bugsnag-js) v3.x error reporting
 
 ## :warning: Deprecation notice
-Bugsnag has released their official Vue.js [plugin](https://github.com/bugsnag/bugsnag-vue).
+Bugsnag has released their official Vue.js [plugin](https://github.com/bugsnag/bugsnag-vue).<br>
 You can keep using this plugin if you don't want to upgrade to Bugsnag js v4.x.
 It is recommended to [upgrade](https://docs.bugsnag.com/platforms/browsers/vue/upgrading/) to Bugsnag js v4.x.
  
