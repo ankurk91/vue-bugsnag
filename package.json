@@ -1,7 +1,7 @@
 {
   "name": "vue-bugsnag",
   "version": "1.0.0",
-  "description": "Vue.js plugin for bugsnag js error reporting",
+  "description": "Vue.js plugin for bugsnag js v3.x error reporting",
   "main": "dist/vue-bugsnag.js",
   "unpkg": "dist/vue-bugsnag.min.js",
   "repository": {

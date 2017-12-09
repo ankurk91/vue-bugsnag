@@ -8,8 +8,13 @@
 [![build-status](https://travis-ci.org/ankurk91/vue-bugsnag.svg?branch=master)](https://travis-ci.org/ankurk91/vue-bugsnag)
 [![codecov](https://codecov.io/gh/ankurk91/vue-bugsnag/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-bugsnag)
 
-Vue.js plugin for [bugsnag-js](https://github.com/bugsnag/bugsnag-js) error reporting
+Vue.js plugin for [bugsnag-js](https://github.com/bugsnag/bugsnag-js) v3.x error reporting
 
+## :warning: Deprecation notice
+Bugsnag has released their official Vue.js [plugin](https://github.com/bugsnag/bugsnag-vue).
+You can keep using this plugin if you don't want to upgrade to Bugsnag js v4.x.
+It is recommended to [upgrade](https://docs.bugsnag.com/platforms/browsers/vue/upgrading/) to Bugsnag js v4.x.
+ 
 ![Bugsnag Dashboard](screenshot.png)
 
 ## Installation
